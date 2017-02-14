@@ -2,6 +2,20 @@
 
 import socket               # Import socket module
 
+
+
+
+
+def executeCommand(command):
+    #TODO do control GPIO
+	response = "executing " + command
+	print(response)
+	return response
+
+
+
+
+
 s = socket.socket()         # Create a socket object
 host = socket.gethostname() # Get local machine name
 port = 8080                # Reserve a port for your service.
@@ -17,7 +31,8 @@ while 1:
 	datastring = data.decode("utf-8")
 	if ("\n" in datastring or "\r\n" in datastring):
 		print("found carriage return")
-		conn.sendall(databuffer.encode('utf-8'))
+		response = executeCommand(databuffer)
+		conn.sendall(response.encode('utf-8'))
 		databuffer = ""
 	else:
 		print("adding to buffer")
@@ -25,3 +40,9 @@ while 1:
 	if not data: break
 
 conn.close()
+
+
+
+
+
+
