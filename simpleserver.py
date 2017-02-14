@@ -13,10 +13,15 @@ conn, addr = s.accept()
 print('Connected by', addr)
 databuffer =""
 while 1:
-  data = conn.recv(1024)
-  datastring = data.decode("utf-8")
-  print(databuffer)
-  databuffer = databuffer + datastring
-  if not data: break
-  conn.sendall(databuffer.encode('utf-8'))
+	data = conn.recv(1024)
+	datastring = data.decode("utf-8")
+	if ("\n" in datastring or "\r\n" in datastring):
+		print("found carriage return")
+		conn.sendall(databuffer.encode('utf-8'))
+		databuffer = ""
+	else:
+		print("adding to buffer")
+		databuffer = databuffer + datastring
+	if not data: break
+
 conn.close()
