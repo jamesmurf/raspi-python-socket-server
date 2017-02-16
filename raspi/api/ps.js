@@ -1,5 +1,7 @@
-function login(key){
+function login(keyId){
+	var key = document.getElementById("keyId").value;
 	var params = "key="+key;
+
 	callserver("api/authenticate.php",params);
 }
 
@@ -26,5 +28,11 @@ function callserver(url,params){
 }
 
 function handleResponse(response){
+	
 	document.getElementById("message").innerHTML = response;
+	if(response == "not authorized"){
+	document.getElementById("login").className = "loginoff";
+	}else{
+	document.getElementById("login").className = "login";
+	}
 }

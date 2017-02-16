@@ -2,6 +2,5 @@
 
 import sys
 
-
-print(' Number of arguments:', len(sys.argv), 'arguments.')
-print(' Argument List:', str(sys.argv))
+command = (sys.argv[1]);
+print (": python executes ",command)

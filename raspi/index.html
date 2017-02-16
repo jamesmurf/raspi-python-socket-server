@@ -2,14 +2,24 @@
 		<head>
 		<script src = "api/ps.js">
 		</script>
+		<link rel="stylesheet" type="text/css" href="darkstyle.css">
 		</head>
 		<body>
-			<input id="key" type="password"></input>
-			<button onclick="login(document.getElementById('key').value)">connect</button></br>
-			<div id="message">disconnected</div></br>
-			&nbsp&nbsp&nbsp&nbsp&nbsp<button value="up" onclick="execute(this)">up</button></br>
-			<button value="left" onclick="execute(this)">left</button><button value="right" onclick="execute(this)">right</button>&nbsp&nbsp&nbsp&nbsp&nbsp<button value="A" onclick="execute(this)">A</button><button value="B" onclick="execute(this)">B</button></br>
-			&nbsp&nbsp&nbsp<button value="down" onclick="execute(this)">down</button></br>
+		<div class="controlpad">
+			<input id="keyId" type="password"></input>
+			<button class="loginoff" id="login" onclick="login(keyId)">&#9762</button></br>
+			<div id="message">disconnected</div>
+			</br>
+			<button value="up" onclick="execute(this)">up</button>
+			<button value="left" onclick="execute(this)">left</button>
+			<button value="right" onclick="execute(this)">right</button>
+			<button value="A" onclick="execute(this)">A</button>
+			<button value="B" onclick="execute(this)">B</button>
+			<button value="down" onclick="execute(this)">down</button>
+			<button value="H" onclick="execute(this)">H</button>
+			<button value="J" onclick="execute(this)">J</button>
+			<button value="X" onclick="execute(this)">X</button>
+		</div>
 		</body>
 </html>
 
